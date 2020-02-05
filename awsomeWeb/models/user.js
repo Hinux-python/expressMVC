@@ -2,10 +2,10 @@ var mongoose = require('mongoose')
 
 var UserSchema = new mongoose.Schema({
     username: { type: String },
-    emil: { type: String },
+    email: { type: String },
     password: { type: String },
     createTime: { type: Date, default: new Date() },
-    status: { type: Number },
+    status: { type: Number, default: 1 },
     avatar_url: { type: String },
     permission: { type: String },
     updateTime: { type: Date, default: new Date() }
