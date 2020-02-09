@@ -63,17 +63,21 @@ exports.login = function (req, res, next) {
             return res.render('sign/signin', { error: '密码错误。' });
         }
         if (user.status != 1) {
-            // 从新发送激活邮件
-
+            // 账号异常
             return res.render('sign/signin', { error: '账号异常请联系管理员' });
         }
         // store session cookie
         gen_session(user, res);
         req.session.user = user;
-        return res.redirect('home');
+        return res.redirect('chat');
     });
 }
-
+//注销
+exports.signout = function (req, res, next) {
+    req.session.destroy();
+    res.clearCookie(config.auth_cookie_name, { path: '/' });
+    res.redirect('/sign/signin');
+};
 exports.index = function (req, res) {
     res.render('/home');
 }

@@ -1,0 +1,12 @@
+<% for(var message in message_list){ %>
+    <div class="msg-box mt-3">
+        <div class="picture">
+            <img class="pop-card" data-position="right center" data-offset="-40" src="<%= message.avatar_url %>">
+        </div>
+        <div class="msg">
+            <span class="nickname">1<%= message.username %></span>
+            <small class="timestamp">2<%= message.createTime %></small>
+            <span class="message-body">3<%= message.content %></span>
+        </div>
+    </div>
+<%}%>
